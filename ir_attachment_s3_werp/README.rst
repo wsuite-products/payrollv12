@@ -21,7 +21,7 @@ Maintainers
 -----------
 * `IT-Projects LLC <https://it-projects.info>`__
 
-      To get a guaranteed support you are kindly requested to purchase the module at `odoo apps store <https://apps.odoo.com/apps/modules/10.0/ir_attachment_s3/>`__.
+      To get a guaranteed support you are kindly requested to purchase the module at `odoo apps store <https://apps.odoo.com/apps/modules/10.0/ir_attachment_s3_werp/>`__.
 
       Thank you for understanding!
 
@@ -30,7 +30,7 @@ Maintainers
 Further information
 ===================
 
-HTML Description: https://apps.odoo.com/apps/modules/10.0/ir_attachment_s3/
+HTML Description: https://apps.odoo.com/apps/modules/10.0/ir_attachment_s3_werp/
 
 Usage instructions: `<doc/index.rst>`_
 

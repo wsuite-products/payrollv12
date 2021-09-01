@@ -14,7 +14,7 @@
     'website': 'https://destiny.ws/',
     'depends': [
                'product',
-               'ir_attachment_s3',
+               'ir_attachment_s3_werp',
                'base_address_city',
                'hr_recruitment',
                'hr_employee_extended_werp',

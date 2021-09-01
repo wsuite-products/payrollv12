@@ -18,7 +18,7 @@
                 'recruitment_reason',
                 'hr_recruitment_extended',
                 'partner_product',
-                'ir_attachment_s3',
+                'ir_attachment_s3_werp',
                 'hr_contract_extended_werp'
                 ],
     'data': [

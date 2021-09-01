@@ -22,7 +22,7 @@ Odoo parameters
   (...)
 
 * Note: without the configuration above the module UI wouldn't work - and you couldn't use `@` button on binary image fields to specify their urls manually.
-  All other functions of the module will work without the ``--load=...``, e.g. you can still use `ir_attachment_s3` that specifies urls for you in binary image fields.
+  All other functions of the module will work without the ``--load=...``, e.g. you can still use `ir_attachment_s3_werp` that specifies urls for you in binary image fields.
 
 Usage
 =====
