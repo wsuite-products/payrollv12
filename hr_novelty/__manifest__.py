@@ -53,8 +53,8 @@
     ],
     'installable': True,
     'application': False,
+    'license': 'LGPL-3',
     'external_dependencies': {
         'python': ['ip2geotools'],
     }
-    'license': 'LGPL-3',
 }
