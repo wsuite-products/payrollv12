@@ -48,6 +48,6 @@
         name="HR Sports"
         groups="hr.group_hr_user"
         action="hr_sports_action"
-        parent="hr_employee_extended.hr_curriculum_vitae_menu"/>
+        parent="hr_employee_extended_werp.hr_curriculum_vitae_menu"/>
 
 </odoo>

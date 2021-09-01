@@ -48,6 +48,6 @@
         name="HR External Job Position"
         groups="hr.group_hr_user"
         action="hr_external_job_position_action"
-        parent="hr_employee_extended.hr_curriculum_vitae_menu"/>
+        parent="hr_employee_extended_werp.hr_curriculum_vitae_menu"/>
 
 </odoo>

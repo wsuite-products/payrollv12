@@ -48,6 +48,6 @@
         name="HR Family Group Category"
         groups="hr.group_hr_user"
         action="hr_family_group_categ_action"
-        parent="hr_employee_extended.hr_curriculum_vitae_menu"/>
+        parent="hr_employee_extended_werp.hr_curriculum_vitae_menu"/>
 
 </odoo>

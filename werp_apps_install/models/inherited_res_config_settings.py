@@ -16,7 +16,7 @@ class ResConfigSettings(models.TransientModel):
         string="Allow Hr Contract Termination Report")
     module_hr_curriculum_vitae = fields.Boolean(
         string="Allow Hr Curriculum Vitae")
-    module_hr_employee_extended = fields.Boolean(
+    module_hr_employee_extended_werp = fields.Boolean(
         string="Allow Hr Employee Extended")
     module_hr_employee_policy = fields.Boolean(
         string="Allow Hr Employee Policy")
@@ -61,7 +61,7 @@ class ResConfigSettings(models.TransientModel):
                         'hr_contract_completion',
                         'hr_contract_extended_werp', 'hr_contract_massive',
                         'hr_contract_report', 'hr_contract_termination_report',
-                        'hr_employee_extended', 'hr_employee_flextime',
+                        'hr_employee_extended_werp', 'hr_employee_flextime',
                         'hr_employee_policy', 'hr_novelty', 'hr_novelty_close',
                         'hr_extended', 'hr_payroll_income_withholding',
                     'hr_payroll_iw_recalc', 'hr_payslip_special_settlement',

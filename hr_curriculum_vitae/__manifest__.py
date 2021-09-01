@@ -17,7 +17,7 @@
                'ir_attachment_s3',
                'base_address_city',
                'hr_recruitment',
-               'hr_employee_extended',
+               'hr_employee_extended_werp',
     ],
     'data': [
         'views/hr_academic_area.xml',
