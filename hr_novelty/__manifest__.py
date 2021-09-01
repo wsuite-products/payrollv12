@@ -56,4 +56,5 @@
     'external_dependencies': {
         'python': ['ip2geotools'],
     }
+    'license': 'LGPL-3',
 }
