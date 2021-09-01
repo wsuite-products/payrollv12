@@ -26,7 +26,7 @@
     <record id="view_hr_employee_form_you_contract_inherit" model="ir.ui.view">
         <field name="name">hr.employee.form.you.inherit</field>
         <field name="model">hr.employee</field>
-        <field name="inherit_id" ref="hr_contract_extended.view_hr_employee_form_contract_inherit"/>
+        <field name="inherit_id" ref="hr_contract_extended_werp.view_hr_employee_form_contract_inherit"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='marital_status_id']" position="attributes">
                 <attribute name="groups">hr.group_hr_user,additional_configuration.group_you</attribute>
@@ -41,7 +41,7 @@
     <record id="view_hr_employee_tree_you_contract_inherit" model="ir.ui.view">
         <field name="name">hr.employee.tree.you.inherit</field>
         <field name="model">hr.employee</field>
-        <field name="inherit_id" ref="hr_contract_extended.view_hr_employee_tree_contract_inherit"/>
+        <field name="inherit_id" ref="hr_contract_extended_werp.view_hr_employee_tree_contract_inherit"/>
         <field name="arch" type="xml">
 
             <xpath expr="//field[@name='marital_status_id']" position="attributes">

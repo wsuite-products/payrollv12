@@ -133,13 +133,13 @@ class HrContract(models.Model):
     #     ir_model_data = self.env['ir.model.data']
     #     try:
     #         template_id = ir_model_data.get_object_reference(
-    #             'hr_contract_extended',
+    #             'hr_contract_extended_werp',
     #             'email_template_apprenticeship_contract')[1]
     #     except ValueError:
     #         template_id = False
     #     try:
     #         compose_form_id = ir_model_data.get_object_reference(
-    #             'hr_contract_extended',
+    #             'hr_contract_extended_werp',
     #             'email_compose_message_wizard_form_contract_extended')[1]
     #     except ValueError:
     #         compose_form_id = False

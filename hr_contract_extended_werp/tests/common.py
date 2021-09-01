@@ -24,7 +24,7 @@ class TestHrContractExtended(TestHrCommon):
         self.test_partner_id = self.env['res.partner'].create({
             'name': 'Test Partner'})
         self.email_template_id = self.env.ref(
-            'hr_contract_extended.email_template_apprenticeship_contract')
+            'hr_contract_extended_werp.email_template_apprenticeship_contract')
 
         image_path = modules.get_module_resource(
             'hr', 'static/src/img', 'default_image.png')

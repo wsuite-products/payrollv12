@@ -14,7 +14,7 @@
     'depends': [
         'hr',
         'hr_curriculum_vitae',
-        'hr_contract_extended',
+        'hr_contract_extended_werp',
         'hr_contract_report',
         'hr_extended',
         'hr_recruitment'

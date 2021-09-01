@@ -117,7 +117,7 @@
         <field eval="[(4,ref('additional_configuration.group_you'))]" name="groups_id"/>
     </record>
 
-    <record model="ir.ui.menu" id="hr_contract_extended.hr_center_formation_menu">
+    <record model="ir.ui.menu" id="hr_contract_extended_werp.hr_center_formation_menu">
         <field eval="[(4,ref('additional_configuration.group_you'))]" name="groups_id"/>
     </record>
 

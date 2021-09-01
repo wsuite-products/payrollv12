@@ -10,7 +10,7 @@ class ResConfigSettings(models.TransientModel):
 
     module_hr_contract_completion = fields.Boolean(
         string="Allow Hr Contract Completion")
-    module_hr_contract_extended = fields.Boolean(
+    module_hr_contract_extended_werp = fields.Boolean(
         string="Allow Hr Contract Extended")
     module_hr_contract_termination_report = fields.Boolean(
         string="Allow Hr Contract Termination Report")
@@ -59,7 +59,7 @@ class ResConfigSettings(models.TransientModel):
             for app in self.env['ir.module.module'].sudo().search([
                     ('name', 'in', (
                         'hr_contract_completion',
-                        'hr_contract_extended', 'hr_contract_massive',
+                        'hr_contract_extended_werp', 'hr_contract_massive',
                         'hr_contract_report', 'hr_contract_termination_report',
                         'hr_employee_extended', 'hr_employee_flextime',
                         'hr_employee_policy', 'hr_novelty', 'hr_novelty_close',

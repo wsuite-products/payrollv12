@@ -19,7 +19,7 @@
                 'hr_recruitment_extended',
                 'partner_product',
                 'ir_attachment_s3',
-                'hr_contract_extended'
+                'hr_contract_extended_werp'
                 ],
     'data': [
         'security/hr_novelty_security.xml',

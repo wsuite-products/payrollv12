@@ -14,7 +14,7 @@
         'base_automation',
         'hr_payroll_account',
         'hr_novelty',
-        'hr_contract_extended'],
+        'hr_contract_extended_werp'],
     'data': [
         'security/ir.model.access.csv',
         'views/webhook_view.xml',
