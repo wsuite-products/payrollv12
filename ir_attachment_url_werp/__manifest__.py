@@ -12,11 +12,11 @@
         "web",
     ],
     "data": [
-        "views/ir_attachment_url_werp_template.xml",
+        "views/ir_attachment_url_template.xml",
         "demo/ir_attachment.xml",
     ],
     "qweb": [
-        "static/src/xml/ir_attachment_url_werp.xml",
+        "static/src/xml/ir_attachment_url.xml",
     ],
     "demo": [
     ],

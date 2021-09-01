@@ -17,8 +17,8 @@
         'hr_contract_extended_werp'],
     'data': [
         'security/ir.model.access.csv',
-        'views/webhook_werp_view.xml',
-        'views/webhook_werp_history_view.xml',
+        'views/webhook_view.xml',
+        'views/webhook_history_view.xml',
         'views/object_confg_view.xml',
         'views/hr_employee_view.xml',
     ],
