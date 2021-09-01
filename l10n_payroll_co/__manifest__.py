@@ -12,7 +12,7 @@
     'company': 'Destiny SAS',
     'website': 'https://destiny.ws/',
     'depends': [
-        'hr_payroll_income_withholding', 'hr_payroll_extended'
+        'hr_payroll_income_withholding', 'hr_payroll_extended_werp'
     ],
     'data': [
         'data/hr_salary_rule_category.xml',

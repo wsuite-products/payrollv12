@@ -32,7 +32,7 @@ class ResConfigSettings(models.TransientModel):
         string="Allow Hr Payroll Income Withholding")
     module_hr_payroll_interface = fields.Boolean(
         string="Allow Hr Payroll Interface")
-    module_hr_payroll_extended = fields.Boolean(
+    module_hr_payroll_extended_werp = fields.Boolean(
         string="Allow Hr Payroll")
     module_hr_payslip_special_settlement = fields.Boolean(
         string="Allow Hr Payslip Special Settlement")
@@ -65,7 +65,7 @@ class ResConfigSettings(models.TransientModel):
                         'hr_employee_policy', 'hr_novelty', 'hr_novelty_close',
                         'hr_extended', 'hr_payroll_income_withholding',
                     'hr_payroll_iw_recalc', 'hr_payslip_special_settlement',
-                    'l10n_payroll_co', 'hr_payroll_extended')),
+                    'l10n_payroll_co', 'hr_payroll_extended_werp')),
                     ('state', '=', 'uninstalled')]):
                 app.button_immediate_install()
         super(ResConfigSettings, self).set_values()

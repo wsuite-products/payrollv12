@@ -24,7 +24,7 @@
         <field name="name">view.employee.form.inherit.inherit</field>
         <field name="model">hr.employee</field>
         <field name="inherit_id"
-               ref="hr_payroll_extended.view_employee_form_inherit"/>
+               ref="hr_payroll_extended_werp.view_employee_form_inherit"/>
         <field name="groups_id"
                eval="[(4, ref('base.group_system'))]"/>
         <field name="arch" type="xml">

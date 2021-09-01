@@ -16,7 +16,7 @@
     },
     'depends': [
         'base_address_city',
-        'hr_payroll_extended',
+        'hr_payroll_extended_werp',
         'l10n_co',
     ],
     'data': [

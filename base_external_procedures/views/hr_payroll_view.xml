@@ -4,7 +4,7 @@
     <record id="view_hr_payslip_inherit_form_bep" model="ir.ui.view">
         <field name="name">Payslip Inherit BEP</field>
         <field name="model">hr.payslip</field>
-        <field name="inherit_id" ref="hr_payroll_extended.view_hr_payslip_inherit_form"/>
+        <field name="inherit_id" ref="hr_payroll_extended_werp.view_hr_payslip_inherit_form"/>
         <field name="arch" type="xml">
             <xpath expr="//button[@name='action_payslip_calculate_retention']" position="after">
                 <button string="Execute" name="action_execute" type="object"/>

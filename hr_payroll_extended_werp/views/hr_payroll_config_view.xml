@@ -39,7 +39,7 @@
                          states="reject"
                          name="move_to_draft"
                          string="Move to Draft"
-                         groups="hr_payroll_extended.group_payroll_draft"/>
+                         groups="hr_payroll_extended_werp.group_payroll_draft"/>
                 </header>
                 <sheet>
                     <group>

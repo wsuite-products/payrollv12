@@ -21,7 +21,7 @@ class HrPayslipEmployees(models.TransientModel):
         message = 'The process finish in (%s) seconds!' % (
             3 * len(self.employee_ids))
         view_id = self.env.ref(
-            'hr_payroll_extended.hr_payslip_employees_confirm_wizard').id
+            'hr_payroll_extended_werp.hr_payslip_employees_confirm_wizard').id
         thread = threading.Thread(target=self.with_context(
             progress_action=threading.get_ident()).compute_sheet_thread, args=(
         ))

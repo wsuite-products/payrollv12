@@ -25,7 +25,7 @@
                 <button name="%(reprocess_acumulate_wizard_action)d"
                         string="Reprocess Acumulate" type="action"
                         states="done"
-                        groups="hr_payroll_extended.group_payroll_reprocess_acumulate"/>
+                        groups="hr_payroll_extended_werp.group_payroll_reprocess_acumulate"/>
                 <button string="Calculate RF"
                         name="action_payslip_calculate_retention"
                         type="object"
@@ -35,7 +35,7 @@
                         type="object" states="done"/>
                 <button string="Update Entities" name="action_update_entities"
                         type="object" states="done,paid"
-                        groups="hr_payroll_extended.group_update_entities"/>
+                        groups="hr_payroll_extended_werp.group_update_entities"/>
 
             </field>
             <field name="employee_id" position="attributes">
@@ -236,7 +236,7 @@
                 <button name="%(reprocess_acumulate_wizard_action)d"
                         string="Reprocess Acumulate" type="action"
                         states="confirmed"
-                        groups="hr_payroll_extended.group_payroll_reprocess_acumulate"/>
+                        groups="hr_payroll_extended_werp.group_payroll_reprocess_acumulate"/>
             </button>
             <field name="credit_note" position="after">
                 <field name="pay_annual"/>
@@ -372,6 +372,6 @@ for rec in records:
                 res_model="reprocess.acumulate.wizard"
                 src_model="hr.payslip" multi="True"
                 view_mode="form" target="new"
-                groups="hr_payroll_extended.group_payroll_reprocess_acumulate"/>
+                groups="hr_payroll_extended_werp.group_payroll_reprocess_acumulate"/>
 
 </odoo>

@@ -221,7 +221,7 @@ class HrPayslip(models.Model):
     @api.multi
     def send_payslip_email(self):
         mail_template_id = self.env.ref(
-            'hr_payroll_extended.email_template_payslip_email')
+            'hr_payroll_extended_werp.email_template_payslip_email')
         att_id = self.env['ir.attachment'].search([
             ('res_model', '=', 'hr.payslip'),
             ('res_id', '=', self.id)], limit=1)
@@ -303,7 +303,7 @@ class HrPayslip(models.Model):
     @api.multi
     def unlink(self):
         if not self.env.user.has_group(
-                'hr_payroll_extended.group_payslip_delete'):
+                'hr_payroll_extended_werp.group_payslip_delete'):
             raise UserError(_('You can not delete Payslip!'))
         return super(HrPayslip, self).unlink()
 

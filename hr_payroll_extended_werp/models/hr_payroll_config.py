@@ -51,7 +51,7 @@ class HrPayrollConfig(models.Model):
             'view_mode': 'form',
             'res_model': 'payroll.config.reason.reject',
             'view_id': self.env.ref(
-                'hr_payroll_extended.payroll_config_reason_reject_form').id,
+                'hr_payroll_extended_werp.payroll_config_reason_reject_form').id,
             'target': 'new',
         }
 

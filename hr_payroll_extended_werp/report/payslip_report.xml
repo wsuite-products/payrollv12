@@ -4,7 +4,7 @@
               inherit_id="hr_payroll.report_payslip">
         <t t-call="web.external_layout"
            position="attributes">
-            <attribute name="t-call">hr_payroll_extended.external_layout_payroll</attribute>
+            <attribute name="t-call">hr_payroll_extended_werp.external_layout_payroll</attribute>
         </t>
         <xpath expr="//h2" position="before">
             <br/><br/>

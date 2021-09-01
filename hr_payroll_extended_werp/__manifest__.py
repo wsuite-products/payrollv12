@@ -20,7 +20,7 @@
     ],
     'data': [
         'security/ir.model.access.csv',
-        'security/hr_payroll_extended_security.xml',
+        'security/hr_payroll_extended_werp_security.xml',
         'views/hr_salary_rule_view.xml',
         'wizard/reprocess_acumulate_wizard_view.xml',
         'views/payslip_view.xml',
@@ -49,6 +49,6 @@
         'data/report_data.xml',
         'report/payslip_report.xml',
         'views/res_config_settings_view.xml',
-        'data/hr_payroll_extended_data.xml',
+        'data/hr_payroll_extended_werp_data.xml',
     ],
 }

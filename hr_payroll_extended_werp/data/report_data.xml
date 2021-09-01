@@ -19,7 +19,7 @@
 
     <record id="hr_payroll.action_report_payslip" model="ir.actions.report">
         <field name="paperformat_id"
-               ref="hr_payroll_extended.paperformat_us_payslip"/>
+               ref="hr_payroll_extended_werp.paperformat_us_payslip"/>
     </record>
 
     <template id="external_layout_standard_payroll">
@@ -81,7 +81,7 @@
 
     <template id="external_layout_payroll">
         <t t-if="not o" t-set="o" t-value="doc"/>
-        <t t-call="hr_payroll_extended.external_layout_standard_payroll">
+        <t t-call="hr_payroll_extended_werp.external_layout_standard_payroll">
             <t t-raw="0"/>
         </t>
 

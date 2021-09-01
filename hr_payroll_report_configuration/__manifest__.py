@@ -12,7 +12,7 @@
     'company': 'Destiny SAS',
     'website': 'https://destiny.ws/',
     'depends': [
-        'hr_payroll_extended'
+        'hr_payroll_extended_werp'
     ],
     'data': [
         'security/ir.model.access.csv',
