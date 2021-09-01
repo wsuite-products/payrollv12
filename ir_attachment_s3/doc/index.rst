@@ -46,13 +46,13 @@ Configuration
 
 * To enable the feature of linking existing urls to binary fields:
 
-  * Start Odoo with ``--load=web,ir_attachment_url`` or set the ``server_wide_modules`` option in The Odoo configuration file:
+  * Start Odoo with ``--load=web,ir_attachment_url_werp`` or set the ``server_wide_modules`` option in The Odoo configuration file:
 
 ::
 
   [options]
   # (...)
-  server_wide_modules = web,ir_attachment_url
+  server_wide_modules = web,ir_attachment_url_werp
   # (...)
 
 * `Enable technical features <https://odoo-development.readthedocs.io/en/latest/odoo/usage/technical-features.html>`__
@@ -99,7 +99,7 @@ Usage
 Depending on what you have in the ``s3.condition`` setting, some or all attachments will be uploaded on your s3.
 For example upload by editing product template from ``Sales >> Product`` menu some image for your product.
 By doing this you have uploaded image on your s3 storage.
-In this case you should also install ``ir_attachment_url`` module to be able to see products' images in odoo backend. Because by default odoo doesn't use urls in its backend. It uses only local stored files or stored db data.
+In this case you should also install ``ir_attachment_url_werp`` module to be able to see products' images in odoo backend. Because by default odoo doesn't use urls in its backend. It uses only local stored files or stored db data.
 
 Upload existing attachments
 ---------------------------

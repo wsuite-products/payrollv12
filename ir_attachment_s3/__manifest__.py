@@ -9,7 +9,7 @@
     "author": "IT-Projects LLC, Ildar Nasyrov, Destiny",
     "depends": [
         'base_setup',
-        'ir_attachment_url',
+        'ir_attachment_url_werp',
         'hr',
     ],
     "data": [

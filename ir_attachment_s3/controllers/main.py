@@ -4,7 +4,7 @@ import werkzeug
 import odoo
 from odoo.http import request, route
 from odoo.addons.web.controllers.main import Binary
-# TODO some code can be part of ir_attachment_url
+# TODO some code can be part of ir_attachment_url_werp
 
 _logger = logging.getLogger(__name__)
 
