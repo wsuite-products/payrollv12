@@ -7,7 +7,7 @@
     'author': 'Destiny',
     'summary': 'Hr Payroll Report Customization for werp',
     'category': 'Human Resources',
-    'license': 'AGPL-3',
+    'license': 'LGPL-3',
     'maintainer': 'werp',
     'company': 'Destiny',
     'website': 'https://destiny.ws',
