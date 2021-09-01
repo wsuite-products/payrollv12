@@ -98,7 +98,7 @@ class HREvaluation(models.Model):
     @api.multi
     def send_mail(self):
         template_id = self.env.ref(
-            'hr_recruitment_extended.email_template_evaluation')
+            'hr_recruitment_extended_werp.email_template_evaluation')
         self.env['mail.template'].browse(template_id.id).send_mail(self.id)
 
     @api.multi

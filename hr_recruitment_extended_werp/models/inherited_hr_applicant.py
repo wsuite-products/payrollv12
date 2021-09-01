@@ -53,7 +53,7 @@ class HrApplicant(models.Model):
                 ('partner_id', '!=', self.partner_id.id),
                 ('job_id', '=', self.job_id.id)]):
             applicant.stage_id = self.env.ref(
-                'hr_recruitment_extended.stage_job11').id
+                'hr_recruitment_extended_werp.stage_job11').id
             applicant.partner_id.write({'state_selection': 'eligible'})
         return res
 

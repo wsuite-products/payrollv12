@@ -16,7 +16,7 @@
                 'hr_extended',
                 'hr_curriculum_vitae',
                 'recruitment_reason',
-                'hr_recruitment_extended',
+                'hr_recruitment_extended_werp',
                 'partner_product',
                 'ir_attachment_s3_werp',
                 'hr_contract_extended_werp'

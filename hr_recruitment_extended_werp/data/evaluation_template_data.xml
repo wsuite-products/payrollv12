@@ -3,7 +3,7 @@
     <data noupdate="1">
         <record id="email_template_evaluation" model="mail.template">
             <field name="name">Personal Competences Analysis</field>
-            <field name="model_id" ref="hr_recruitment_extended.model_hr_evaluation"/>
+            <field name="model_id" ref="hr_recruitment_extended_werp.model_hr_evaluation"/>
             <field name="subject">Personal Competences Analysis</field>
             <field name="email_from">${user.email | safe}</field>
             <field name="email_to">${object.hr_applicant_id.partner_id.email | safe}</field>

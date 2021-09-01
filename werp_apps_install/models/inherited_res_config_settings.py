@@ -38,7 +38,7 @@ class ResConfigSettings(models.TransientModel):
         string="Allow Hr Payslip Special Settlement")
     module_hr_extended = fields.Boolean(
         string="Allow Hr")
-    module_hr_recruitment_extended = fields.Boolean(
+    module_hr_recruitment_extended_werp = fields.Boolean(
         string="Allow Hr Recruitment Extended")
     is_all_payroll_colombian = fields.Boolean('All Payroll Colombian')
 

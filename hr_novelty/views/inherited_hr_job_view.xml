@@ -7,7 +7,7 @@
         <field name="name">hr.job.form.view.inherit.extended</field>
         <field name="model">hr.job</field>
         <field name="inherit_id"
-               ref="hr_recruitment_extended.hr_job_form_view_inherit_extended"/>
+               ref="hr_recruitment_extended_werp.hr_job_form_view_inherit_extended"/>
         <field name="arch" type="xml">
             <page name="stage_per" position="after">
                 <page string="Novelty Job" name="novelty_job">
