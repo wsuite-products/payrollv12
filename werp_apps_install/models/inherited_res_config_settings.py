@@ -20,7 +20,7 @@ class ResConfigSettings(models.TransientModel):
         string="Allow Hr Employee Extended")
     module_hr_employee_policy = fields.Boolean(
         string="Allow Hr Employee Policy")
-    module_hr_holiday_exclude_special_days = fields.Boolean(
+    module_hr_holiday_exclude_special_days_werp = fields.Boolean(
         string="Allow Hr Holiday Exclude Special Days")
     module_hr_novelty = fields.Boolean(
         string="Allow Hr Novelty")
