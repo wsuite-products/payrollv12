@@ -7,8 +7,7 @@
     'summary': 'Message Read',
     'category': 'Administration',
     'author': 'Destiny',
-    'license': 'LGPL-3',
-    'maintainer': 'Destiny',
+    'license': 'Other proprietary',
     'company': 'Destiny SAS',
     'website': 'https://destiny.ws/',
     'depends': [
