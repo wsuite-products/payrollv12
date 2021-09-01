@@ -7,6 +7,7 @@
     "application": False,
 
     "author": "IT-Projects LLC, Ildar Nasyrov, Destiny",
+    'license': 'LGPL-3',
     "depends": [
         'base_setup',
         'ir_attachment_url_werp',
