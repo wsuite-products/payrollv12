@@ -7,7 +7,7 @@
     'author': 'Destiny',
     'summary': 'Hr Payroll Report Customization for werp',
     'category': 'Human Resources',
-    'license': 'OEEL-1',
+    'license': 'OPL-1',
     'maintainer': 'werp',
     'company': 'Destiny',
     'website': 'https://destiny.ws',
