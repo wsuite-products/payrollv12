@@ -10,7 +10,7 @@
     'maintainer': 'Destiny',
     'company': 'Destiny SAS',
     'website': 'https://destiny.ws/',
-    'depends': ['crm_lead_extended', 'account'],
+    'depends': ['account'],
     'data': [
         'views/res_partner_view.xml',
     ],
