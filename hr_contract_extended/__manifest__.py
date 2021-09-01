@@ -41,5 +41,5 @@
     'installable': True,
     'application': True,
     'auto_install': False,
-    'license': 'GPL-3'
+    'license': 'OPL-1'
 }
