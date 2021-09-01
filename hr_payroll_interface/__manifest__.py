@@ -7,7 +7,7 @@
     'summary': 'HR Payroll Interface',
     'category': 'Payroll',
     'author': 'Destiny',
-    'license': 'AGPL-3',
+    'license': 'LGPL-3',
     'maintainer': 'Destiny',
     'company': 'Destiny SAS',
     'website': 'https://destiny.ws/',
