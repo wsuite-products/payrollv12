@@ -25,4 +25,5 @@
         'views/hr_employee_view.xml',
         'views/menu_view.xml',
     ],
+    'license': 'LGPL-3',
 }
