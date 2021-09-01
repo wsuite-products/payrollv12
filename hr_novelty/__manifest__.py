@@ -12,7 +12,7 @@
                 'hr',
                 'hr_payroll',
                 'hr_holidays',
-                'base_product',
+                'base_product', 
                 'hr_extended',
                 'hr_curriculum_vitae',
                 'recruitment_reason',

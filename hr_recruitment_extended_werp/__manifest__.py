@@ -8,7 +8,7 @@
     'summary': 'Extends the Hr Recruitment Functionality for Destiny',
     'category': 'Human Resources',
     'author': 'Destiny',
-    'license': 'AGPL-3',
+    'license': 'LGPL-3',
     'maintainer': 'Destiny',
     'company': 'Destiny SAS',
     'website': 'https://destiny.ws/',
