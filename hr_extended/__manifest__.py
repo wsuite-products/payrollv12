@@ -7,7 +7,7 @@
     'category': 'Human Resources',
     'website': 'https://destiny.ws/',
     'author': 'Destiny',
-    # 'license': 'LGPL',
+    'license': 'LGPL-3',
     'application': False,
     'installable': True,
     'external_dependencies': {
