@@ -45,12 +45,12 @@
 
     <menuitem name="Payroll Report"
               string="Payroll Report"
-              id="hr_payroll_report_menu"
+              id="hr_payroll_report_werp_menu"
               parent="hr_payroll.menu_hr_payroll_root"/>
 
     <menuitem name="Payroll Bancos"
               id="hr_payroll_bancos_menu"
               action="hr_payroll_bancos_action"
-              parent="hr_payroll_report_menu"/>
+              parent="hr_payroll_report_werp_menu"/>
 
 </odoo>

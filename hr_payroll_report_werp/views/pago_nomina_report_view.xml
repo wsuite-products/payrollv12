@@ -48,6 +48,6 @@
     <menuitem name="Pago Nomina"
               id="pago_nomina_report_menu"
               action="pago_nomina_report_action"
-              parent="hr_payroll_report_menu"/>
+              parent="hr_payroll_report_werp_menu"/>
 
 </odoo>
