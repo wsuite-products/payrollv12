@@ -13,7 +13,7 @@
     'application': False,
     'installable': True,
     'depends': [
-        'base', 'webhook', 'mail', 'multi_brand'
+        'base', 'webhook_werp', 'mail', 'multi_brand'
     ],
     'data': [
         'security/ir.model.access.csv',

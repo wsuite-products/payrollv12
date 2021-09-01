@@ -2,7 +2,7 @@
 # Copyright 2019-TODAY WSuite Products <wsuite-products@destiny.ws>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from . import webhook
+from . import webhook_werp
 from . import object_confg
 from . import hr_payslip
 from . import hr_employee

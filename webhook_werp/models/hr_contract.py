@@ -18,17 +18,17 @@ class HrContract(models.Model):
         old_vals = self.read(vals.keys())
         res = super(HrContract, self).write(vals)
         if vals and old_vals:
-            self.action_webhook_signed_contract(vals, old_vals[0])
+            self.action_webhook_werp_signed_contract(vals, old_vals[0])
         return res
 
     @api.model
     def create(self, vals):
         res = super(HrContract, self).create(vals)
-        res.action_webhook_create_form_data(13, vals)
+        res.action_webhook_werp_create_form_data(13, vals)
         return res
 
     @api.multi
-    def get_generic_details(self, webhook_type, vals):
+    def get_generic_details(self, webhook_werp_type, vals):
         final_data = {
             'from': {},
             'to': {},
@@ -38,8 +38,8 @@ class HrContract(models.Model):
                 'binary_field': [],
                 'config_field': [],
             },
-            'webhook_type': webhook_type,
-            'webhook_history_id': {},
+            'webhook_werp_type': webhook_werp_type,
+            'webhook_werp_history_id': {},
             'reference': '%s,%s' % (self._name, self.id)
         }
         final_data['to'].update({
@@ -58,41 +58,41 @@ class HrContract(models.Model):
         return final_data, read_data
 
     @api.multi
-    def final_webhook_details(self, webhook_id, final_data, json_data,
+    def final_webhook_werp_details(self, webhook_werp_id, final_data, json_data,
                               cv_field_list, binary_field_list):
         object_confg = self.env['object.confg'].search([
             ('object_id.model', '=', 'hr.employee')], limit=1, order='sequence')
         config_data = object_confg.get_data(self.employee_id)
-        if webhook_id.url_type == 'other':
+        if webhook_werp_id.url_type == 'other':
             del final_data['data']['normal_field']
             del final_data['data']['cv_fields']
             del final_data['data']['binary_field']
             if config_data.get('data').get('entry_date'):
                 config_data['data']['entry_date'] = str(self.date_start)
             final_data['data']['config_field'] = config_data.get('data')
-            final_data['webhook_type'] = 13
+            final_data['webhook_werp_type'] = 13
         else:
             final_data['data']['normal_field'] = json_data
             final_data['data']['cv_fields'] = cv_field_list
             final_data['data']['binary_field'] = binary_field_list
-        webhook_history_id = \
-            self.env['webhook.history'].action_webhook_history_create(
+        webhook_werp_history_id = \
+            self.env['webhook_werp.history'].action_webhook_werp_history_create(
                 final_data)
-        if webhook_history_id:
-            final_data['webhook_history_id'] = webhook_history_id.id
+        if webhook_werp_history_id:
+            final_data['webhook_werp_history_id'] = webhook_werp_history_id.id
             thread = threading.Thread(
-                target=webhook_id.sent_data,
-                args=(webhook_id.model_name, final_data, self))
+                target=webhook_werp_id.sent_data,
+                args=(webhook_werp_id.model_name, final_data, self))
             thread.start()
 
     @api.multi
-    def action_webhook_create_form_data(self, webhook_type, vals):
-        webhook_ids = self.env['webhook'].search(
+    def action_webhook_werp_create_form_data(self, webhook_werp_type, vals):
+        webhook_werp_ids = self.env['webhook_werp'].search(
             [('model_id.model', '=', self._name), ('trigger', 'in', ['on_create', 'on_create_or_write'])])
-        for webhook_id in webhook_ids:
-            if webhook_id and vals:
+        for webhook_werp_id in webhook_werp_ids:
+            if webhook_werp_id and vals:
                 final_data, read_data = self.get_generic_details(
-                    webhook_type, vals)
+                    webhook_werp_type, vals)
                 json_data = []
                 cv_field_list = []
                 binary_field_list = []
@@ -122,33 +122,33 @@ class HrContract(models.Model):
                                     'value': change_value
                                     }
                         json_data.append(key_data)
-                self.final_webhook_details(webhook_id, final_data, json_data,
+                self.final_webhook_werp_details(webhook_werp_id, final_data, json_data,
                                            cv_field_list, binary_field_list)
 
     @api.multi
-    def action_webhook_signed_contract(self, vals, old_vals):
-        webhook_ids = self.env['webhook'].search([
+    def action_webhook_werp_signed_contract(self, vals, old_vals):
+        webhook_werp_ids = self.env['webhook_werp'].search([
             ('model_id.model', '=', self._name),
             ('trigger', 'in', ['on_write', 'on_create_or_write']),
             ('url_type', '=', 'you')])
-        for webhook_id in webhook_ids:
+        for webhook_werp_id in webhook_werp_ids:
             if not vals:
                 continue
-            webhook_type_list = []
+            webhook_werp_type_list = []
             if vals.get('signed_contract', False):
-                webhook_type_list.extend([9, 11])
+                webhook_werp_type_list.extend([9, 11])
                 vals.pop('signed_contract', False)
                 vals.pop('datas_fname', False)
             if vals:
-                webhook_type_list.extend([10, 12])
+                webhook_werp_type_list.extend([10, 12])
             updated_vals = {}
-            for webhook_type in webhook_type_list:
+            for webhook_werp_type in webhook_werp_type_list:
                 final_data = {
                     'from': {}, 'to': {}, 'data': [],
-                    'webhook_type': webhook_type,
+                    'webhook_werp_type': webhook_werp_type,
                     'default_data': json.loads(
-                        webhook_id.default_json or '{}'),
-                    'webhook_history_id': {},
+                        webhook_werp_id.default_json or '{}'),
+                    'webhook_werp_history_id': {},
                     'reference': '%s,%s' % (self._name, self.id)
                 }
                 parent = self.employee_id.parent_id
@@ -158,7 +158,7 @@ class HrContract(models.Model):
                     'email': self.employee_id.work_email,
                     'token': ''
                 }
-                if webhook_type in [9, 10]:
+                if webhook_werp_type in [9, 10]:
                     final_data['to'].update(current_employee)
                 else:
                     if parent:
@@ -171,7 +171,7 @@ class HrContract(models.Model):
                         })
                     final_data['from'].update(current_employee)
 
-                if webhook_type in [9, 11]:
+                if webhook_werp_type in [9, 11]:
                     final_data['data'] = {
                         'message': 'Contract (%s) signed by %s!' % (
                             self.name, self.employee_id.name)}
@@ -214,12 +214,12 @@ class HrContract(models.Model):
                             final_update_vals.update(json_data)
                         updated_vals = json_data
                     final_data['data'] = updated_vals
-                webhook_history_id = \
-                    self.env['webhook.history'].action_webhook_history_create(
+                webhook_werp_history_id = \
+                    self.env['webhook_werp.history'].action_webhook_werp_history_create(
                         final_data)
-                if webhook_history_id:
-                    final_data['webhook_history_id'] = webhook_history_id.id
+                if webhook_werp_history_id:
+                    final_data['webhook_werp_history_id'] = webhook_werp_history_id.id
                     thread = threading.Thread(
-                        target=webhook_id.sent_data,
-                        args=(webhook_id.model_name, final_data, self))
+                        target=webhook_werp_id.sent_data,
+                        args=(webhook_werp_id.model_name, final_data, self))
                     thread.start()

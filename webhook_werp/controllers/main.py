@@ -7,11 +7,11 @@
 # import json
 #
 #
-# class WebhookController(http.Controller):
+# class webhook_werpController(http.Controller):
 #
-#     @http.route('/webhook/<model_name>', type='http', auth="none",
+#     @http.route('/webhook_werp/<model_name>', type='http', auth="none",
 #                 methods=['POST', 'GET', 'PUT', 'DELETE'], csrf=False)
-#     def webhook(self, **post):
+#     def webhook_werp(self, **post):
 #         return werkzeug.wrappers.Response(
 #             status=200,
 #             content_type='application/json; charset=utf-8',

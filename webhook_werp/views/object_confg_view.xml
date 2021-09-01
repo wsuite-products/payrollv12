@@ -42,7 +42,7 @@
             <field name="name">object.confg.tree</field>
             <field name="model">object.confg</field>
             <field name="arch" type="xml">
-                <tree string="Webhook">
+                <tree string="webhook_werp">
                     <field name="sequence" widget="handle"/>
                     <field name="name"/>
                     <field name="object_id"/>
@@ -64,7 +64,7 @@
 
 
         <record id="object_confg_act" model="ir.actions.act_window">
-            <field name="name">Webhook Obejct Confg</field>
+            <field name="name">webhook_werp Obejct Confg</field>
             <field name="res_model">object.confg</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>

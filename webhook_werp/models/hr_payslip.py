@@ -12,17 +12,17 @@ class HrPayslip(models.Model):
     _inherit = "hr.payslip"
 
     @api.multi
-    def action_webhook(self):
-        webhook_ids = self.env['webhook'].search([
+    def action_webhook_werp(self):
+        webhook_werp_ids = self.env['webhook_werp'].search([
             ('model_id.model', '=', self._name),
             ('trigger', 'in', ['on_write', 'on_create_or_write']),
             ('url_type', '=', 'you')])
-        for webhook_id in webhook_ids:
+        for webhook_werp_id in webhook_werp_ids:
             final_data = {'from': {}, 'to': {}, 'data': [],
-                          'webhook_type': 4,
+                          'webhook_werp_type': 4,
                           'default_data': json.loads(
-                              webhook_id.default_json or '{}'),
-                          'webhook_history_id': {},
+                              webhook_werp_id.default_json or '{}'),
+                          'webhook_werp_history_id': {},
                           'reference': '%s,%s' % (self._name, self.id)
                           }
             final_data['to'].update({
@@ -41,18 +41,18 @@ class HrPayslip(models.Model):
             fields_data = object_confg.get_data(self)
             final_data.update(fields_data)
 
-            webhook_history_id = \
-                self.env['webhook.history'].action_webhook_history_create(
+            webhook_werp_history_id = \
+                self.env['webhook_werp.history'].action_webhook_werp_history_create(
                     final_data)
-            if webhook_history_id:
-                final_data['webhook_history_id'] = webhook_history_id.id
+            if webhook_werp_history_id:
+                final_data['webhook_werp_history_id'] = webhook_werp_history_id.id
                 thread = threading.Thread(
-                    target=webhook_id.sent_data,
-                    args=(webhook_id.model_name, final_data, self))
+                    target=webhook_werp_id.sent_data,
+                    args=(webhook_werp_id.model_name, final_data, self))
                 thread.start()
                 return True
 
     @api.multi
     def action_payslip_done(self):
-        self.action_webhook()
+        self.action_webhook_werp()
         return super(HrPayslip, self).action_payslip_done()

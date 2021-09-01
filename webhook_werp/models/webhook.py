@@ -14,8 +14,8 @@ from datetime import date, datetime
 TYPE2REFUND = {'write': {}}
 
 
-class BaseWebhook(models.Model):
-    _name = 'webhook'
+class Basewebhook_werp(models.Model):
+    _name = 'webhook_werp'
     _inherit = ['base.automation', 'portal.mixin', 'mail.thread',
                 'mail.activity.mixin']
 
@@ -36,9 +36,9 @@ class BaseWebhook(models.Model):
         _logger.info(" Final Data Post : %s", json.dumps(final_data))
         _logger.info(" URL : %s", self.url)
         data = requests.post(self.url, data=json.dumps(final_data), headers=headers)
-        _logger.info(" Webhook Info : %s", data)
+        _logger.info(" webhook_werp Info : %s", data)
         if model_name not in ['hr.employee', 'hr.contract']:
-            _logger.info(" Webhook Process Done!")
+            _logger.info(" webhook_werp Process Done!")
         elif record_id and self.url_type == 'other' \
                 and model_name in ['hr.employee', 'hr.contract']:
             if model_name == 'hr.employee':
@@ -54,7 +54,7 @@ class BaseWebhook(models.Model):
                                data_dict.get('Msg'),
                                fields.Datetime.now(),
                                employee_id))
-        _logger.info(" Webhook Process Done!")
+        _logger.info(" webhook_werp Process Done!")
 
     def _filter_post_export_domain(self, records):
         """ Filter the records that satisfy the postcondition
@@ -80,7 +80,7 @@ class BaseWebhook(models.Model):
         # defined inside a loop; in that case,
         # the variable 'create' is bound to
         # the last function defined by the loop.
-        webhook_id = False
+        webhook_werp_id = False
         def make_create():
             """ Instanciate a create method that processes action rules. """
             @api.model_create_multi
@@ -129,7 +129,7 @@ class BaseWebhook(models.Model):
             @api.multi
             def unlink(self, **kwargs):
                 # retrieve the action rules to possibly execute
-                actions = self.env['webhook']._get_actions(self, ['on_unlink'])
+                actions = self.env['webhook_werp']._get_actions(self, ['on_unlink'])
                 records = self.with_env(actions.env)
                 # records.mapped('')
                 record_list = []
@@ -140,8 +140,8 @@ class BaseWebhook(models.Model):
                 for action in actions:
                     action._process(action._filter_post(records))
                 # thread = threading.Thread(
-                #     target=webhook_id.sent_data,
-                #     args=(webhook_id.model_name, record_list, False))
+                #     target=webhook_werp_id.sent_data,
+                #     args=(webhook_werp_id.model_name, record_list, False))
                 # thread.start()
                 # call original method
                 return unlink.origin(self, **kwargs)
@@ -150,7 +150,7 @@ class BaseWebhook(models.Model):
         def make_onchange(action_rule_id):
             """ Instanciate an onchange method for the given action rule. """
             def base_automation_onchange(self):
-                action_rule = self.env['webhook'].browse(action_rule_id)
+                action_rule = self.env['webhook_werp'].browse(action_rule_id)
                 result = {}
                 server_action = action_rule.action_server_id.with_context(
                     active_model=self._name, onchange_self=self)
@@ -188,7 +188,7 @@ class BaseWebhook(models.Model):
                                 (action_rule.id,
                                  action_rule.model_name))
                 continue
-            webhook_id = action_rule
+            webhook_werp_id = action_rule
             default_json = action_rule.default_json or '{}'
             if action_rule.trigger == 'on_create':
                 patch(Model, 'create', make_create())
@@ -210,15 +210,15 @@ class BaseWebhook(models.Model):
                     Model._onchange_methods[field_name.strip()].append(method)
 
     @api.multi
-    def get_generic_details_common(self, webhook_type, vals, record):
+    def get_generic_details_common(self, webhook_werp_type, vals, record):
         final_data = {
             'from': {},
             'to': {},
             'data': {
                 'normal_field': [],
             },
-            'webhook_type': webhook_type,
-            'webhook_history_id': {},
+            'webhook_werp_type': webhook_werp_type,
+            'webhook_werp_history_id': {},
             'reference': '%s,%s' % (record._name, record.id)
         }
         if record.read()[0].get('employee_id'):
@@ -238,17 +238,17 @@ class BaseWebhook(models.Model):
         return final_data, read_data
 
     @api.model
-    def action_webhook_create_form_data_common(self, webhook_type, record):
-        webhook_ids = self.env['webhook'].search([
+    def action_webhook_werp_create_form_data_common(self, webhook_werp_type, record):
+        webhook_werp_ids = self.env['webhook_werp'].search([
             ('model_id.model', '=', record._name),
             ('trigger', 'in', ['on_create', 'on_create_or_write', 'on_unlink']),
             ('url_type', '=', 'you')])
-        for webhook_id in webhook_ids:
+        for webhook_werp_id in webhook_werp_ids:
             final_data = {'from': {}, 'to': {}, 'data': [],
-                          'webhook_type': webhook_type,
+                          'webhook_werp_type': webhook_werp_type,
                           'default_data': json.loads(
-                              webhook_id.default_json or '{}'),
-                          'webhook_history_id': {},
+                              webhook_werp_id.default_json or '{}'),
+                          'webhook_werp_history_id': {},
                           'reference': '%s,%s' % (record._name, record.id)
                           }
             if record.read()[0].get('employee_id'):
@@ -264,25 +264,25 @@ class BaseWebhook(models.Model):
                 'name': record.display_name,
                 'token': ''
             })
-            if webhook_id.object_confg_id:
-                fields_data = webhook_id.object_confg_id.get_data_common(
+            if webhook_werp_id.object_confg_id:
+                fields_data = webhook_werp_id.object_confg_id.get_data_common(
                     record)
                 final_data.update(fields_data)
-                webhook_history_id = \
-                    self.env['webhook.history'].action_webhook_history_create(
+                webhook_werp_history_id = \
+                    self.env['webhook_werp.history'].action_webhook_werp_history_create(
                         final_data)
-                if webhook_history_id:
-                    final_data['webhook_history_id'] = webhook_history_id.id
+                if webhook_werp_history_id:
+                    final_data['webhook_werp_history_id'] = webhook_werp_history_id.id
                     thread = threading.Thread(
-                        target=webhook_id.sent_data,
-                        args=(webhook_id.model_name, final_data, record))
+                        target=webhook_werp_id.sent_data,
+                        args=(webhook_werp_id.model_name, final_data, record))
                     thread.start()
                 return True
             else:
                 vals = record.read()[0]
-                if webhook_id and vals:
+                if webhook_werp_id and vals:
                     final_data, read_data = self.get_generic_details_common(
-                        webhook_type, vals, record)
+                        webhook_werp_type, vals, record)
                     # json_data = []
                     for v_data in vals:
                         if isinstance(read_data.get(v_data), tuple):
@@ -292,20 +292,20 @@ class BaseWebhook(models.Model):
                                 vals.update({v_data: vals.get(
                                     v_data).isoformat()})
                     final_data.update({'data': vals})
-                    webhook_history_id = \
-                        self.env['webhook.history'].action_webhook_history_create(
+                    webhook_werp_history_id = \
+                        self.env['webhook_werp.history'].action_webhook_werp_history_create(
                             final_data)
-                    if webhook_history_id:
-                        final_data['webhook_history_id'] = webhook_history_id.id
+                    if webhook_werp_history_id:
+                        final_data['webhook_werp_history_id'] = webhook_werp_history_id.id
                         thread = threading.Thread(
-                            target=webhook_id.sent_data,
-                            args=(webhook_id.model_name, final_data, record))
+                            target=webhook_werp_id.sent_data,
+                            args=(webhook_werp_id.model_name, final_data, record))
                         thread.start()
                     return True
 
 
-class BaseWebhookHistory(models.Model):
-    _name = 'webhook.history'
+class Basewebhook_werpHistory(models.Model):
+    _name = 'webhook_werp.history'
     _inherit = ['portal.mixin', 'mail.thread', 'mail.activity.mixin']
 
     from_emp_id = fields.Integer(
@@ -320,8 +320,8 @@ class BaseWebhookHistory(models.Model):
         string="Email From", track_visibility='always')
     email_to = fields.Char(
         string="Email To", track_visibility='always')
-    webhook_type = fields.Integer(
-        string="Webhook Type", track_visibility='always')
+    webhook_werp_type = fields.Integer(
+        string="webhook_werp Type", track_visibility='always')
     default_data = fields.Text(
         string="", required=False, track_visibility='always')
     reference = fields.Reference(
@@ -334,7 +334,7 @@ class BaseWebhookHistory(models.Model):
         return [(model.model, model.name) for model in models]
 
     @api.multi
-    def action_webhook_history_create(self, final_data):
+    def action_webhook_werp_history_create(self, final_data):
         domain = []
         if final_data.get('from') and final_data.get(
                 'from')['employee_id']:
@@ -347,8 +347,8 @@ class BaseWebhookHistory(models.Model):
                 final_data.get('from'))))
         if json.dumps(final_data.get('to')):
             domain.append(('email_to', '=', json.dumps(final_data.get('to'))))
-        if final_data.get('webhook_type'):
-            domain.append(('webhook_type', '=', final_data.get('webhook_type')))
+        if final_data.get('webhook_werp_type'):
+            domain.append(('webhook_werp_type', '=', final_data.get('webhook_werp_type')))
         if json.dumps(final_data['data']):
             domain.append(('json_data', '=', json.dumps(final_data['data'])))
         if final_data.get('reference'):
@@ -363,7 +363,7 @@ class BaseWebhookHistory(models.Model):
                     'to')['employee_id'],
                 'email_from': json.dumps(final_data.get('from')),
                 'email_to': json.dumps(final_data.get('to')),
-                'webhook_type': final_data.get('webhook_type'),
+                'webhook_werp_type': final_data.get('webhook_werp_type'),
                 'json_data': json.dumps(final_data['data']),
                 'reference': final_data.get('reference'),
             })

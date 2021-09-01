@@ -244,10 +244,10 @@ class HrEmployee(models.Model):
     #         ('last_update', '<=', check_date)])
     #     for employee_id in employee_ids:
     #         if check_date > employee_id.last_update:
-    #             self.env['webhook.history'].create({
+    #             self.env['webhook_werp.history'].create({
     #                 'from_emp_id': employee_id.parent_id.id,
     #                 'to_emp_id': employee_id.id,
-    #                 'webhook_type': 6,
+    #                 'webhook_werp_type': 6,
     #                 'email_from': json.dumps({
     #                     'emp_name': employee_id.parent_id.name,
     #                     'email': employee_id.parent_id.work_email,

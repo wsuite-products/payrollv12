@@ -172,9 +172,9 @@ class ObjectConfg(models.Model):
         return final_data
 
 
-class BaseWebhookHistory(models.Model):
+class Basewebhook_werpHistory(models.Model):
     _name = 'object.fields.confg'
-    _description = 'Base Webhook History'
+    _description = 'Base webhook_werp History'
 
     object_confg_id = fields.Many2one(comodel_name="object.confg",
                                       string="Object")

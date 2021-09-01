@@ -32,24 +32,24 @@ class HrNovelty(models.Model):
     def create(self, vals):
         res = super(HrNovelty, self).create(vals)
         if res:
-            res.action_webhook(1, False)
+            res.action_webhook_werp(1, False)
             return res
 
     @api.multi
-    def action_webhook(self, type, message):
-        webhook_ids = self.env['webhook'].search([
+    def action_webhook_werp(self, type, message):
+        webhook_werp_ids = self.env['webhook_werp'].search([
             ('model_id.model', '=', self._name),
             ('trigger', 'in', ['on_write', 'on_create_or_write']),
             ('url_type', '=', 'you')])
-        for webhook_id in webhook_ids:
-            records, domain = webhook_id._filter_post_export_domain(self)
+        for webhook_werp_id in webhook_werp_ids:
+            records, domain = webhook_werp_id._filter_post_export_domain(self)
             if not records:
                 continue
             final_data = {
                 'from': {}, 'to': {}, 'data': [],
-                'webhook_type': type,
-                'default_data': json.loads(webhook_id.default_json or '{}'),
-                'webhook_history_id': {},
+                'webhook_werp_type': type,
+                'default_data': json.loads(webhook_werp_id.default_json or '{}'),
+                'webhook_werp_history_id': {},
                 'reference': '%s,%s' % (self._name, self.id)
             }
             uid = self.env.user
@@ -122,21 +122,21 @@ class HrNovelty(models.Model):
                     }
                     final_data['data'] = json_d
             if final_data['data']:
-                webhook_history_id = \
-                    self.env['webhook.history'].action_webhook_history_create(
+                webhook_werp_history_id = \
+                    self.env['webhook_werp.history'].action_webhook_werp_history_create(
                         final_data)
-                if webhook_history_id:
-                    final_data['webhook_history_id'] = webhook_history_id.id
+                if webhook_werp_history_id:
+                    final_data['webhook_werp_history_id'] = webhook_werp_history_id.id
                     thread = threading.Thread(
-                        target=webhook_id.sent_data,
-                        args=(webhook_id.model_name, final_data, self))
+                        target=webhook_werp_id.sent_data,
+                        args=(webhook_werp_id.model_name, final_data, self))
                     thread.start()
                     return True
 
     @api.multi
     def action_approve(self):
         res = super(HrNovelty, self).action_approve()
-        self.with_context({'action_cancel': True}).action_webhook(2, False)
+        self.with_context({'action_cancel': True}).action_webhook_werp(2, False)
         return res
 
     @api.multi
@@ -145,7 +145,7 @@ class HrNovelty(models.Model):
         parent = self.employee_id.parent_id
         if parent and parent.total_remaining_approve_novelty > \
                 parent.approval_limit:
-            self.action_webhook(5, True)
+            self.action_webhook_werp(5, True)
         return res
 
     @api.multi
@@ -154,7 +154,7 @@ class HrNovelty(models.Model):
         parent = self.employee_id.parent_id
         if parent and parent.total_remaining_approve_novelty > \
                 parent.approval_limit:
-            self.action_webhook(5, True)
+            self.action_webhook_werp(5, True)
         return res
 
     @api.multi
@@ -162,11 +162,11 @@ class HrNovelty(models.Model):
         self.write({
             'reject_reason': data,
             'state': 'rejected'})
-        self.action_webhook(3, data)
+        self.action_webhook_werp(3, data)
 
     @api.multi
     def action_cancel(self):
-        self.action_webhook(102, False)
+        self.action_webhook_werp(102, False)
         super(HrNovelty, self).action_cancel()
 
 
@@ -180,4 +180,4 @@ class NoveltyRejectWizard(models.TransientModel):
         novelty_id.write({
             'reject_reason': self.reject_reason,
             'state': 'rejected'})
-        novelty_id.action_webhook(3, False)
+        novelty_id.action_webhook_werp(3, False)

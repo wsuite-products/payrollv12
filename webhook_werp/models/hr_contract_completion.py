@@ -33,22 +33,22 @@ class HRContractCompletion(models.Model):
     @api.model
     def create(self, vals):
         res = super(HRContractCompletion, self).create(vals)
-        res.action_webhook_create_contract_completion_form_data(22, vals)
+        res.action_webhook_werp_create_contract_completion_form_data(22, vals)
         return res
     
     @api.multi
-    def action_webhook_create_contract_completion_form_data(self, webhook_type, vals):
-        webhook_ids = self.env['webhook'].search(
+    def action_webhook_werp_create_contract_completion_form_data(self, webhook_werp_type, vals):
+        webhook_werp_ids = self.env['webhook_werp'].search(
             [('model_id.model', '=', self._name),
              ('url_type', '=', 'w_plan'),
              ('trigger', 'in', ['on_create', 'on_create_or_write'])])
-        for webhook_id in webhook_ids:
+        for webhook_werp_id in webhook_werp_ids:
             final_data = {
                 'from': {},
                 'to': {},
                 'data': {},
-                'webhook_type': webhook_type,
-                'webhook_history_id': {},
+                'webhook_werp_type': webhook_werp_type,
+                'webhook_werp_history_id': {},
                 'reference': '%s,%s' % (self._name, self.id)
             }
 
@@ -88,12 +88,12 @@ class HRContractCompletion(models.Model):
                 "RequestDate": str(self.date) or "",
             }
             final_data['data'] = json
-            webhook_history_id = \
-                self.env['webhook.history'].action_webhook_history_create(
+            webhook_werp_history_id = \
+                self.env['webhook_werp.history'].action_webhook_werp_history_create(
                     final_data)
-            if webhook_history_id:
-                final_data['webhook_history_id'] = webhook_history_id.id
+            if webhook_werp_history_id:
+                final_data['webhook_werp_history_id'] = webhook_werp_history_id.id
                 thread = threading.Thread(
-                    target=webhook_id.sent_data,
-                    args=(webhook_id.model_name, final_data, self))
+                    target=webhook_werp_id.sent_data,
+                    args=(webhook_werp_id.model_name, final_data, self))
                 thread.start()

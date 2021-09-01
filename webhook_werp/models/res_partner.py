@@ -36,33 +36,33 @@ class ResPartner(models.Model):
                 vals.get('street2', False) or vals.get('city_id', False) or vals.get('state_id', False) or \
                 vals.get('zip', False) or vals.get('country_id', False) or vals.get('phone', False) or \
                 vals.get('function_id') or vals.get('title') or vals.get('l10n_co_document_type') or vals.get('vat'):
-            self.action_webhook_update_form_data_partner(20, vals)
+            self.action_webhook_werp_update_form_data_partner(20, vals)
         res = super(ResPartner, self).write(vals)
         return res
 
     @api.multi
-    def get_generic_details(self, webhook_type, vals):
+    def get_generic_details(self, webhook_werp_type, vals):
         final_data = {
             'from': {},
             'to': {},
             'data': {},
-            'webhook_type': webhook_type,
-            'webhook_history_id': {},
+            'webhook_werp_type': webhook_werp_type,
+            'webhook_werp_history_id': {},
             'reference': '%s,%s' % (self._name, self.id)
         }
         read_data = self.read(vals.keys())[0]
         return final_data, read_data
 
     @api.multi
-    def action_webhook_update_form_data_partner(self, webhook_type, vals):
-        webhook_ids = self.env['webhook'].search(
+    def action_webhook_werp_update_form_data_partner(self, webhook_werp_type, vals):
+        webhook_werp_ids = self.env['webhook_werp'].search(
             [('model_id.model', '=', 'res.partner'),
              ('url_type', '=', 'w_plan'),
              ('trigger', 'in', ['on_create', 'on_write', 'on_create_or_write'])])
-        for webhook_id in webhook_ids:
+        for webhook_werp_id in webhook_werp_ids:
             if vals:
                 final_data, read_data = self.get_generic_details(
-                    webhook_type, vals)
+                    webhook_werp_type, vals)
             employee_id = self.env['hr.employee'].search([('address_home_id', '=', self.id)], limit=1)
             state_id = False
             country_id = False
@@ -136,12 +136,12 @@ class ResPartner(models.Model):
             if 'title' in vals:
                 json.update({"OldFieldName": self.title.name or ""})
             final_data['data'] = json
-            webhook_history_id = \
-                self.env['webhook.history'].action_webhook_history_create(
+            webhook_werp_history_id = \
+                self.env['webhook_werp.history'].action_webhook_werp_history_create(
                     final_data)
-            if webhook_history_id:
-                final_data['webhook_history_id'] = webhook_history_id.id
+            if webhook_werp_history_id:
+                final_data['webhook_werp_history_id'] = webhook_werp_history_id.id
                 thread = threading.Thread(
-                    target=webhook_id.sent_data,
-                    args=(webhook_id.model_name, final_data, self))
+                    target=webhook_werp_id.sent_data,
+                    args=(webhook_werp_id.model_name, final_data, self))
                 thread.start()

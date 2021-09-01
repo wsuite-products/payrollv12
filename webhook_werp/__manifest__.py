@@ -3,7 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 {
-    'name': 'Webhook Automated Action',
+    'name': 'webhook_werp Automated Action',
     'version': '12.0.1.0.0',
     'category': 'Server Tools',
     'author': 'Destiny',
@@ -17,8 +17,8 @@
         'hr_contract_extended_werp'],
     'data': [
         'security/ir.model.access.csv',
-        'views/webhook_view.xml',
-        'views/webhook_history_view.xml',
+        'views/webhook_werp_view.xml',
+        'views/webhook_werp_history_view.xml',
         'views/object_confg_view.xml',
         'views/hr_employee_view.xml',
     ],

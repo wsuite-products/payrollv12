@@ -7,7 +7,7 @@ import logging
 _logger = logging.getLogger(__name__)
 
 
-class BaseWebhookHistory(models.Model):
+class Basewebhook_werpHistory(models.Model):
     _inherit = 'object.fields.confg'
 
     search_fields_config_id = fields.Many2one(
