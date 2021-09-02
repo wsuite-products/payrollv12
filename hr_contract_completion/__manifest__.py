@@ -4,6 +4,7 @@
     'name': 'hr_contract_completion',
     'version': '12.0.1.0',
     'author': 'Destiny',
+    'license': 'LGPL-3',
     'website': 'https://www.destiny.ws',
     'category': 'Human Resources',
     'summary': "Module to manage employee's Contract Completion.",

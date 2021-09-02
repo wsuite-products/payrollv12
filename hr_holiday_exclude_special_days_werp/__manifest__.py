@@ -19,6 +19,7 @@ Module modifying the HR leave:
 
         ''',
     'author': 'Niboo',
+    'license': 'LGPL-3',
     'depends': [
         'hr_holidays',
     ],

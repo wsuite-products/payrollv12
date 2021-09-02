@@ -7,7 +7,7 @@
     'summary': 'Hr Employee Update',
     'category': 'Administration',
     'author': 'Destiny',
-    'license': 'AGPL-3',
+    'license': 'LGPL-3',
     'maintainer': 'Destiny',
     'company': 'Destiny SAS',
     'website': 'https://destiny.ws/',

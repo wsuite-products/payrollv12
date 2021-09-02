@@ -9,6 +9,7 @@
     'category': 'base',
     'website': 'https://destiny.ws/',
     'author': 'Destiny',
+    'license': 'LGPL-3',
     'application': False,
     'installable': True,
     'depends': [
