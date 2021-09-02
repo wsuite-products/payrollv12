@@ -23,7 +23,6 @@
         'hr_contract_report',
         'hr_extended',
         'hr_payroll_iw_recalc',
-        'l10n_co_payroll',
         'postulants',
         'werp_apps_install',
         'base_extended',
