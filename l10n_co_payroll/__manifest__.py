@@ -4,7 +4,7 @@
 {
     'name': 'Payroll Localization Colombian all modules',
     'version': '12.0.1.0.0',
-    'summary': 'Payroll Localization Colombian',
+    'summary': 'Payroll Localization Colombian.',
     'category': 'Administration',
     'author': 'Destiny',
     'license': 'LGPL-3',
