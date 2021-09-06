@@ -1,14 +1,14 @@
-# Copyright 2020-TODAY WSuite Products <wsuite-products@destiny.ws>
+# Copyright 2020-TODAY WSuite Products <wsuite-products@wsuite.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 {
     'name': 'HR Contract Massive',
     'version': '12.0.1.0.0',
     'category': 'Generic Modules/Human Resources',
-    'author': 'Destiny',
-    'maintainer': 'Destiny',
-    'company': 'Destiny SAS',
-    'website': 'https://destiny.ws/',
+    'author': 'WSuite',
+    'maintainer': 'WSuite',
+    'company': 'WSuite SAS',
+    'website': 'https://wsuite.com/',
     'depends': [
                 'hr_contract_extended_werp',
     ],

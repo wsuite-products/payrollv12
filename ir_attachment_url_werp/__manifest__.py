@@ -6,7 +6,7 @@
     "version": "12.0",
     "application": False,
 
-    "author": "IT-Projects LLC, Ildar Nasyrov, Destiny",
+    "author": "IT-Projects LLC, Ildar Nasyrov, WSuite",
     "license": "LGPL-3",
     "depends": [
         "web",

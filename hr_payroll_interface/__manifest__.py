@@ -1,4 +1,4 @@
-# Copyright 2019-TODAY WSuite Products <wsuite-products@destiny.ws>
+# Copyright 2019-TODAY WSuite Products <wsuite-products@wsuite.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 {
@@ -6,11 +6,11 @@
     'version': '12.0.1.0.0',
     'summary': 'HR Payroll Interface',
     'category': 'Payroll',
-    'author': 'Destiny',
+    'author': 'WSuite',
     'license': 'LGPL-3',
-    'maintainer': 'Destiny',
-    'company': 'Destiny SAS',
-    'website': 'https://destiny.ws/',
+    'maintainer': 'WSuite',
+    'company': 'WSuite SAS',
+    'website': 'https://wsuite.com/',
     'depends': [
         'hr_extended',
         'hr_payroll_income_withholding',

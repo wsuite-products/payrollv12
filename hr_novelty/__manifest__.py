@@ -3,8 +3,8 @@
 {
     'name': 'hr_novelty',
     'version': '12.0.1.0',
-    'author': 'Destiny',
-    'website': 'https://www.destiny.ws',
+    'author': 'WSuite',
+    'website': 'https://www.wsuite.com',
     'category': 'Human Resources',
     'summary': "Module to manage employee's novelties. i.e: ",
     'depends': ['base',

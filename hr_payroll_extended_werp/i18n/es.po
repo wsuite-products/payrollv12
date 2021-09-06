@@ -490,7 +490,7 @@ msgstr "Registro de contribución"
 
 #. module: hr_payroll_extended_werp
 #: model_terms:ir.ui.view,arch_db:hr_payroll_extended_werp.external_layout_standard_payroll
-msgid "Correo electrónico: info@destiny.ws Web: http://destiny.ws/es"
+msgid "Correo electrónico: info@wsuite.com Web: http://wsuite.com/es"
 msgstr ""
 
 #. module: hr_payroll_extended_werp

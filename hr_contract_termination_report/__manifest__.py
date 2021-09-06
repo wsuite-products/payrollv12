@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Copyright 2019-TODAY WSuite Products <wsuite-products@destiny.ws>
+# Copyright 2019-TODAY WSuite Products <wsuite-products@wsuite.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 {
     'name': 'HR Contract Termination Report',
     'version': '12.0.1.0',
-    'author': 'Destiny',
+    'author': 'WSuite',
     'license': 'LGPL-3',
-    'website': 'https://www.destiny.ws',
+    'website': 'https://www.wsuite.com',
     'category': 'Human Resources',
     'summary': "Module to print Report of employee's Contract Termination.",
     'depends': ['hr_contract_completion',

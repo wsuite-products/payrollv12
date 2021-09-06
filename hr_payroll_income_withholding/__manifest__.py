@@ -3,8 +3,8 @@
 {
     'name': 'Payroll Income Withholding',
     'version': '12.0.1.0',
-    'author': 'Destiny',
-    'website': 'https://www.destiny.ws',
+    'author': 'WSuite',
+    'website': 'https://www.wsuite.com',
     'category': 'Human Resources',
     'summary': "Module to manage income withholding in payroll of employee",
     'depends': ['base',

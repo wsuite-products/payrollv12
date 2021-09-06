@@ -1,16 +1,16 @@
-# Copyright 2020-TODAY WSuite Products <wsuite-products@destiny.ws>
+# Copyright 2020-TODAY WSuite Products <wsuite-products@wsuite.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 {
     'name': 'Hr Payroll Report',
     'version': '12.0.1.0.0',
-    'author': 'Destiny',
+    'author': 'WSuite',
     'summary': 'Hr Payroll Report Customization for werp',
     'category': 'Human Resources',
     'license': 'LGPL-3',
     'maintainer': 'werp',
-    'company': 'Destiny',
-    'website': 'https://destiny.ws',
+    'company': 'WSuite',
+    'website': 'https://wsuite.com',
     'depends': [
         'werp_apps_install',
         'hr_payroll',

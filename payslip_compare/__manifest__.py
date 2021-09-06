@@ -7,11 +7,11 @@
     """ multiple employees at a time.""",
     'sequence': 15,
     'category': 'Human Resources',
-    'author': 'Destiny',
+    'author': 'WSuite',
     'license': 'LGPL-3',
-    'maintainer': 'Destiny',
-    'company': 'Destiny SAS',
-    'website': 'https://destiny.ws/',
+    'maintainer': 'WSuite',
+    'company': 'WSuite SAS',
+    'website': 'https://wsuite.com/',
     'description': """
     Provides the ability to compare payslips of two different month of"""
     """multiple employees at a time.

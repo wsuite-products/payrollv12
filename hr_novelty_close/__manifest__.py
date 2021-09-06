@@ -3,9 +3,9 @@
 {
     'name': 'Close Novelty for payroll',
     'version': '12.0.1.0',
-    'author': 'Destiny',
+    'author': 'WSuite',
     'license': 'LGPL-3',
-    'website': 'https://www.destiny.ws',
+    'website': 'https://www.wsuite.com',
     'category': 'base',
     'summary': "Module to manage events alerts",
     'depends': ['base',
